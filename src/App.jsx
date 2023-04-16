@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Typography } from '@mui/material';
-import FrameParamsForm from './components/FrameParamsForm';
+import FrameParamsForm from './components/frameParamsForm/FrameParamsForm';
 import ResultsTable from './components/ResultsTable';
 
 export default function App() {
