@@ -1,24 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid, Typography } from '@mui/material';
 import FrameParamsForm from './components/frameParamsForm/FrameParamsForm';
 import ResultsTable from './components/resultsTable/ResultsTable';
 
 export default function App() {
+  const [materials, setMaterials] = useState([]);
+
   return (
     <Grid
       container
       direction="column"
       alignItems="center"
       spacing={4}
-      sx={{ 'max-width': 600, mx: 'auto' }}
+      sx={{ maxWidth: 600, mx: 'auto' }}
     >
       <Grid item mt={4}>
-        <Typography variant="h4" align="center">
+        <Typography variant="h5" align="center">
           Расчета каркаса с покрытием листов
         </Typography>
       </Grid>
-      <FrameParamsForm />
-      <ResultsTable />
+      <FrameParamsForm setMaterials={setMaterials} />
+      <ResultsTable materials={materials} />
     </Grid>
   );
 }

@@ -54,8 +54,3 @@ export const calcFixQty = (square, material, config) => {
     return Math.ceil(square * fixParams?.value);
   }
 };
-
-export const calcTotalAmount = (materials) => {
-  const totalAmount = materials.reduce((amount, material) => amount + +material.amount, 0);
-  return totalAmount.toFixed(2);
-};

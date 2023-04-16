@@ -72,7 +72,7 @@ export default function FrameParamsForm({ setMaterials }) {
   const hasErrors = errors && Object.keys(errors).length !== 0;
 
   return (
-    <Grid item>
+    <Grid item xs={12}>
       <Paper elevation={3} sx={{ p: 2 }}>
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <Grid container spacing={2}>

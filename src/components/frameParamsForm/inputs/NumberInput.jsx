@@ -30,7 +30,7 @@ export default function NumberInput({ name, params, useFormObj, xs }) {
             }}
             error={!!errors[name]}
             helperText={errors[name] ? errors[name]?.message : ''}
-            value={field.value || null}
+            value={field.value || ''}
           />
         )}
       />
