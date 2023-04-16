@@ -7,7 +7,7 @@ export default function NumberReadonlyInput({ label, value, xs }) {
       <TextField
         label={label}
         type="number"
-        variant="filled"
+        variant="standard"
         size="small"
         value={value}
         InputProps={{
