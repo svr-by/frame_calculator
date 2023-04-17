@@ -104,7 +104,7 @@ export default function FrameParamsForm({ setMaterials }) {
               />
             </Grid>
             <Grid item>
-              <Typography variant="subtitle1">Параметры перекрытия:</Typography>
+              <Typography variant="subtitle1">Параметры каркаса:</Typography>
             </Grid>
             <Grid container item spacing={2}>
               <NumberInput
