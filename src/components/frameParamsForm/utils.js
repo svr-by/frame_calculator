@@ -26,8 +26,8 @@ export const calcCell = (width, length, pipeObj, frameObj) => {
     const { width: pipeWidth } = pipeObj;
     const { step: frameStep } = frameObj;
     const calcCellSize = (size) => {
-      const qtyCell = Math.ceil(size / frameStep);
-      return ((size - ((qtyCell + 1) * pipeWidth) / 1000) / qtyCell).toFixed(2);
+      const cellQty = Math.ceil(size / frameStep);
+      return ((size - ((cellQty + 1) * pipeWidth) / 1000) / cellQty).toFixed(2);
     };
     cellWidth = calcCellSize(width);
     cellLength = calcCellSize(length);
@@ -41,10 +41,11 @@ export const calcListQty = (square, width) => {
   }
 };
 
-export const calcPipeQty = (square, material, config) => {
-  const fixParams = config.find((item) => item.type === 'fix' && item.key === material);
-  if (square && fixParams?.value) {
-    return Math.ceil(square * fixParams?.value);
+export const calcPipeQty = (lenght, width, step) => {
+  if (lenght && width && step) {
+    const lengthPipeQty = Math.ceil(lenght / step) + 1;
+    const widthPipeQty = Math.ceil(width / step) + 1;
+    return Math.ceil(lengthPipeQty * width + widthPipeQty * lenght);
   }
 };
 

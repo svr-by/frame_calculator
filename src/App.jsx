@@ -16,7 +16,7 @@ export default function App() {
     >
       <Grid item mt={4}>
         <Typography variant="h5" align="center">
-          Расчета каркаса с покрытием листов
+          Калькулятор расчёта плоского каркаса
         </Typography>
       </Grid>
       <FrameParamsForm setMaterials={setMaterials} />

@@ -49,13 +49,19 @@ export default function FrameParamsForm({ setMaterials }) {
   const { cellWidth, cellLength } = calcCell(watchWidth, watchLength, watchPipe, watchFrame);
 
   const onSubmit = (formData) => {
-    const { list, pipe } = formData;
+    const {
+      list,
+      pipe,
+      lenght,
+      width,
+      frame: { step },
+    } = formData;
     const fix = data.find((item) => item.type === 'fix');
 
     const listQty = calcListQty(square, list.width);
     const listAmount = (listQty * list.price).toFixed(2);
 
-    const pipeQty = calcPipeQty(square, list.material, config);
+    const pipeQty = calcPipeQty(lenght, width, step);
     const pipeAmount = (pipeQty * pipe.price).toFixed(2);
 
     const fixQty = calcFixQty(square, list.material, config);
