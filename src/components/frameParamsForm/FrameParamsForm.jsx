@@ -4,6 +4,8 @@ import NumberInput from './inputs/NumberInput';
 import NumberReadonlyInput from './inputs/NumberReadonlyInput';
 import { useForm } from 'react-hook-form';
 import { Paper, Grid, Typography, Box, Button } from '@mui/material';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import CalculateIcon from '@mui/icons-material/Calculate';
 import {
   filterDataByType,
   calcSquare,
@@ -133,19 +135,19 @@ export default function FrameParamsForm({ setMaterials }) {
               <NumberReadonlyInput label="Ширина ячейки, м" value={cellWidth} xs={4} />
               <NumberReadonlyInput label="Длина ячейки, м" value={cellLength} xs={4} />
             </Grid>
-            {/* <Grid container justifyContent="center" item xs={12}>
-              <Box mt={2}>
-                <img src="../../assets/frame.jpg" alt="Frame drawning" />
-              </Box>
-            </Grid> */}
-            <Grid container justifyContent="center" spacing={2} item mt={2}>
+            <Grid container justifyContent="center" spacing={2} item mt={1}>
               <Grid item>
-                <Button type="submit" variant="contained" disabled={hasErrors}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  startIcon={<CalculateIcon />}
+                  disabled={hasErrors}
+                >
                   Рассчитать стоимость
                 </Button>
               </Grid>
               <Grid item>
-                <Button variant="outlined" onClick={reset}>
+                <Button variant="outlined" startIcon={<DeleteOutlineIcon />} onClick={reset}>
                   Очистить
                 </Button>
               </Grid>

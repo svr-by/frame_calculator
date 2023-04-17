@@ -9,13 +9,22 @@ import {
   Typography,
   Grid,
   Paper,
+  Box,
+  Button,
 } from '@mui/material';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CountUp from 'react-countup';
 
-export default function ResultTable({ materials }) {
+export default function ResultTable({ materials, addToCart, reset }) {
   const calcTotalAmount = (materials) => {
     const totalAmount = materials.reduce((amount, material) => amount + +material.amount, 0);
     return totalAmount.toFixed(2);
+  };
+
+  const handleAddToCart = () => {
+    addToCart([materials]);
+    reset();
   };
 
   return (
@@ -70,6 +79,28 @@ export default function ResultTable({ materials }) {
             </TableBody>
           </Table>
         </TableContainer>
+        {materials.length ? (
+          <Box sx={{ display: 'flex', gap: '1rem', justifyContent: 'center', p: '1rem' }}>
+            <Button
+              startIcon={<ShoppingCartIcon />}
+              variant="contained"
+              onClick={handleAddToCart}
+              disabled={!materials.length}
+            >
+              Добавить в корзину
+            </Button>
+            <Button
+              startIcon={<DeleteOutlineIcon />}
+              variant="outlined"
+              onClick={reset}
+              disabled={!materials.length}
+            >
+              Очистить
+            </Button>
+          </Box>
+        ) : (
+          ''
+        )}
       </Paper>
     </Grid>
   );
